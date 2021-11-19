@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: $bg;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  color: $text;
+}
+
+ul,
+ol {
+  list-style: none;
+}

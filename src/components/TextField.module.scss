@@ -1,0 +1,38 @@
+@import "../styles/_base";
+
+.outer {
+}
+
+.label {
+  @include bodyTextM;
+  display: block;
+}
+
+.hint {
+  margin-top: 0.5rem;
+  @include bodyTextS;
+  color: $grey1;
+}
+
+.error {
+  margin-top: 0.5rem;
+  @include bodyTextS;
+}
+
+.input {
+  @include bodyTextM;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid $text;
+  margin-top: 0.5rem;
+
+  &::placeholder {
+    color: $grey1;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $focus;
+    box-shadow: 0px 0px 0px 2px $focus;
+  }
+}

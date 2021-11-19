@@ -2,25 +2,38 @@ import { Handler } from "@netlify/functions"
 import faunadb, { query as q } from "faunadb"
 import { savedResultSchema } from "../validators"
 
-const handler: Handler = async (event, context) => {
+export const handler: Handler = async (event, context) => {
   try {
     const db = new faunadb.Client({
       secret: process.env.FAUNADB_SECRET as string,
+      domain: "db.eu.fauna.com",
     })
 
     switch (event.httpMethod) {
+      // find a result by key/id
       case "GET": {
-        const query = event.queryStringParameters
+        const { ref } = event.queryStringParameters as { ref?: string }
+
+        if (!ref || !parseInt(ref))
+          return {
+            statusCode: 404,
+            body: "You must supply a valid ref",
+          }
 
         const result = await db.query(
-          q.Get(q.Ref(q.Collection("results"), query?.ref))
+          q.Get(q.Ref(q.Collection("results"), ref)),
+          {}
         )
 
         return {
           statusCode: 200,
           body: JSON.stringify(result),
+          headers: {
+            "content-type": "application/json",
+          },
         }
       }
+      // save a new result
       case "POST": {
         const data = JSON.parse(event.body as string)
 
@@ -45,11 +58,10 @@ const handler: Handler = async (event, context) => {
       }
     }
   } catch (e) {
+    console.error(e)
     return {
       statusCode: 500,
       body: JSON.stringify(e),
     }
   }
 }
-
-export { handler }

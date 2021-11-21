@@ -1,6 +1,7 @@
 import { Handler } from "@netlify/functions"
 import faunadb, { query as q } from "faunadb"
 import { savedResultSchema } from "../validators"
+import { nanoid } from "nanoid"
 
 export const handler: Handler = async (event, context) => {
   try {
@@ -12,17 +13,17 @@ export const handler: Handler = async (event, context) => {
     switch (event.httpMethod) {
       // find a result by key/id
       case "GET": {
-        const { ref } = event.queryStringParameters as { ref?: string }
+        const { id } = event.queryStringParameters as { id?: string }
 
-        if (!ref || !parseInt(ref))
+        if (!id || !parseInt(id))
           return {
             statusCode: 404,
-            body: "You must supply a valid ref",
+            body: "You must supply a valid ID",
           }
 
         const result = await db.query(
-          q.Get(q.Ref(q.Collection("results"), ref)),
-          {}
+          q.Match(q.Index("resultsByRublicId"), id)
+          // q.Get(q.Ref(q.Collection("results"), ref))
         )
 
         return {
@@ -40,7 +41,10 @@ export const handler: Handler = async (event, context) => {
         await savedResultSchema.validate(data)
 
         const result = await db.query(
-          q.Create(q.Collection("results"), { data })
+          q.Create(q.Collection("results"), {
+            publicId: nanoid(10),
+            data,
+          })
         )
 
         return {

@@ -1,0 +1,63 @@
+@import "../styles/_base";
+
+@mixin button {
+  @include bodyTextM;
+  cursor: pointer;
+  padding: 12px;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 3px;
+
+  // spacing between icon and text
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 0px 3px $focus;
+  }
+
+  &:active {
+    transform: translateY(2px);
+    box-shadow: none;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: $grey3;
+    background: $bg;
+    box-shadow: none;
+  }
+}
+
+.primaryButton {
+  @include button;
+  background-color: $yellow;
+  box-shadow: 0px 3px 0px darken($yellow, 20);
+
+  &:hover {
+    background-color: darken($yellow, 10);
+  }
+
+  &:active {
+    background-color: darken($yellow, 10);
+  }
+}
+
+.secondaryButton {
+  @include button;
+  background-color: $bg;
+  box-shadow: 0px 3px 0px darken($bg, 20);
+
+  &:hover {
+    background-color: darken($bg, 5);
+  }
+
+  &:active {
+    background-color: darken($bg, 5);
+  }
+}

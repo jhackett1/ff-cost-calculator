@@ -4,7 +4,10 @@ $link: #77755d;
 $bg: #efefef;
 
 $focus: #1a28f1;
-$grey1: #717171;
+$grey1: $text;
+$grey2: #717171;
+$grey3: #cccbc3;
+$grey4: $bg;
 
 @mixin fixedWidthContainer {
   margin-left: auto;

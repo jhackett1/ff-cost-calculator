@@ -1,22 +1,100 @@
 @import "../styles/_base";
 
 .fieldset {
+  * + * {
+    margin-top: 1rem;
+  }
 }
 
 .legend {
+  @include bodyTextXL;
+  font-weight: bold;
 }
 
 .panel {
-}
+  position: relative;
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0px 5px 10px transparentize($text, 0.95);
+  padding-left: 55px;
 
-.input {
+  &:focus-within {
+    box-shadow: 0px 0px 0px 3px $focus;
+  }
 }
 
 .label {
+  @include bodyTextL;
+  font-weight: bold;
+  cursor: pointer;
+
+  //   ring
+  &:before {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    width: 20px;
+    height: 20px;
+    content: "";
+    display: block;
+    border: 2px solid darken($grey4, 10);
+    background: darken($grey4, 5);
+    border-radius: 100%;
+    transition: 0.2s ease-out;
+  }
+
+  //   checkmark
+  &:after {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 14px;
+    height: 14px;
+    content: "";
+    display: block;
+    background: $text;
+    border-radius: 100%;
+    opacity: 0;
+  }
 }
 
-.hint {
+.input {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+
+  &:active + label:before {
+    border-color: $text;
+  }
+
+  &:checked + label {
+    &:before {
+      border-color: $text;
+    }
+
+    &:after {
+      opacity: 1;
+    }
+  }
+}
+
+.hint p {
+  @include bodyTextM;
+  color: $grey2;
 }
 
 .help {
+  summary {
+    color: $link;
+    cursor: pointer;
+
+    &:text {
+      text-decoration: underline;
+    }
+  }
 }

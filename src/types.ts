@@ -1,3 +1,5 @@
+import React from "react"
+
 /** a collection of projects */
 export interface Programme {
   projects: Project[]
@@ -23,7 +25,7 @@ export enum ProjectType {
 export interface Choice {
   icon?: React.ReactChild
   label: string
-  hint: string
+  hint: string | React.ReactChild
   name: string
   value: string
 }

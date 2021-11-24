@@ -3,7 +3,7 @@ $text: #333333;
 $link: #77755d;
 $bg: #efefef;
 
-$focus: #1a28f1;
+$focus: #4752eb;
 $grey1: $text;
 $grey2: #717171;
 $grey3: #cccbc3;
@@ -17,12 +17,18 @@ $grey4: $bg;
 
 @mixin bodyTextS {
   font-size: 0.8rem;
+  line-height: 120%;
 }
 
 @mixin bodyTextM {
   font-size: 1rem;
+  line-height: 140%;
 }
 
 @mixin bodyTextL {
   font-size: 1.2rem;
+}
+
+@mixin bodyTextXL {
+  font-size: 1.4rem;
 }

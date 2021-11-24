@@ -50,6 +50,8 @@ export const ProgrammeProvider = ({
     <ProgrammeContext.Provider
       value={{ programme, addProject, removeProject, startOver }}
     >
+      {JSON.stringify(programme)}
+      <br />
       {children}
     </ProgrammeContext.Provider>
   )

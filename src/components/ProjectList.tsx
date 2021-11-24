@@ -9,8 +9,8 @@ const ProjectList = ({ projects }: Props): React.ReactElement => (
   <div className={s.outer}>
     <ul className={s.list}>
       {projects.map(project => (
-        <li className={s.listItem} key={project.name}>
-          <h2 className={s.name}>{project.name}</h2>
+        <li className={s.listItem} key={project.nickname}>
+          <h2 className={s.name}>{project.nickname}</h2>
           <p className={s.meta}>
             {project.delivery} | {project.type}
           </p>

@@ -4,7 +4,7 @@ import { Project } from "../types"
 
 export interface DraftProjectContextType {
   project: Project
-  setProject: (newProject: Project) => void
+  addToProject: (values: Project) => void
   saveToProgramme: () => void
   discardDraft: () => void
 }
@@ -12,7 +12,7 @@ export interface DraftProjectContextType {
 const DraftProjectContext = createContext<DraftProjectContextType>({
   project: {},
   saveToProgramme: () => null,
-  setProject: project => null,
+  addToProject: project => null,
   discardDraft: () => null,
 })
 
@@ -24,16 +24,28 @@ export const DraftProjectProvider = ({
   const [project, setProject] = useState<Project>({})
   const { addProject } = useProgramme()
 
-  /** commit the current wip project to the programme */
-  const saveToProgramme = () => addProject(project)
+  /** commit the current wip project to the programme, and clear it from the drafts */
+  const saveToProgramme = async () => {
+    addProject(project)
+    // TODO: fix this, it interferes
+    // setProject({})
+  }
 
   /** remove current work in progress */
   const discardDraft = () => setProject({})
 
+  /** concatenate values onto project */
+  const addToProject = (values: Project) =>
+    setProject({
+      ...project,
+      ...values,
+    })
+
   return (
     <DraftProjectContext.Provider
-      value={{ project, setProject, discardDraft, saveToProgramme }}
+      value={{ project, addToProject, discardDraft, saveToProgramme }}
     >
+      {JSON.stringify(project)}
       {children}
     </DraftProjectContext.Provider>
   )

@@ -1,9 +1,10 @@
+import { Field } from "formik"
 import { Choice } from "../types"
 import s from "./RadioPanelField.module.scss"
 
 const RadioPanel = ({ icon, label, hint, name, value }: Choice) => (
   <div className={s.panel}>
-    <input
+    <Field
       className={s.input}
       type="radio"
       name={name}

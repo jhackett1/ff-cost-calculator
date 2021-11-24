@@ -7,7 +7,7 @@ export interface Programme {
 
 /** a single piece of work */
 export interface Project {
-  name?: string
+  nickname?: string
   type?: ProjectType
   delivery?: DeliveryType
 }

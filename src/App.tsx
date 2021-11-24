@@ -30,8 +30,9 @@ const App = () => (
         {/* project list */}
         <Route path="/programme" element={<ProgrammePage />} />
 
-        {/* shareable results page */}
-        <Route path="/results/:shareableKey" element={<ResultsPage />} />
+        {/* results page and shareable variant */}
+        <Route path="/results" element={<ResultsPage />} />
+        <Route path="/results/:id" element={<ResultsPage />} />
       </Routes>
     </Router>
   </ProgrammeProvider>

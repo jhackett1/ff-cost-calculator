@@ -4,16 +4,21 @@ import Button from "../components/Button"
 import Panel from "../components/Panel"
 import RadioPanelField from "../components/RadioPanelField"
 import Layout from "../components/_Layout"
+import { useDraftProject } from "../hooks/useDraftProject"
 
 const ProjectDeliveryPage = () => {
   const push = useNavigate()
+  const { addToProject } = useDraftProject()
 
   return (
     <Layout title="Add a new project">
       <Panel>
         <Formik
-          onSubmit={async () => push("/project/nickname")}
-          initialValues={{ foo: "" }}
+          onSubmit={async values => {
+            addToProject(values)
+            push("/project/nickname")
+          }}
+          initialValues={{ delivery: undefined }}
         >
           <Form>
             <RadioPanelField

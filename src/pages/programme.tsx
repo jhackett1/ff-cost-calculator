@@ -1,5 +1,10 @@
 import Panel from "../components/Panel"
+import Layout from "../components/_Layout"
 
-const Page = () => <Panel>Page</Panel>
+const ProgrammePage = () => (
+  <Layout title="Programme of work">
+    <Panel>Page</Panel>
+  </Layout>
+)
 
-export default Page
+export default ProgrammePage

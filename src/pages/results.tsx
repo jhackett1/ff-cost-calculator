@@ -1,5 +1,10 @@
 import Panel from "../components/Panel"
+import Layout from "../components/_Layout"
 
-const Page = () => <Panel>Page</Panel>
+const ResultsPage = () => (
+  <Layout title="Your estimate">
+    <Panel>Page</Panel>
+  </Layout>
+)
 
-export default Page
+export default ResultsPage

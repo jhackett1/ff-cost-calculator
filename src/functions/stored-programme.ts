@@ -2,6 +2,7 @@ import { Handler } from "@netlify/functions"
 import faunadb, { query as q } from "faunadb"
 import { savedResultSchema } from "../validators"
 import { nanoid } from "nanoid"
+import { Programme } from "../types"
 
 export const handler: Handler = async (event, context) => {
   try {
@@ -36,7 +37,7 @@ export const handler: Handler = async (event, context) => {
       }
       // save a new result
       case "POST": {
-        const data = JSON.parse(event.body as string)
+        const data = JSON.parse(event.body as string) as Programme
 
         await savedResultSchema.validate(data)
 

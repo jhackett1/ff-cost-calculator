@@ -1,0 +1,49 @@
+@import "../styles/_base";
+
+.main {
+  @include fixedWidthContainer;
+  padding: 0px 15px;
+}
+
+.header {
+  padding: 15px 0px;
+}
+
+.headline {
+  margin-top: 3rem;
+  font-size: 3rem;
+  margin-bottom: 0;
+
+  @media screen and (min-width: 700px) {
+    font-size: 4rem;
+  }
+}
+
+.caption {
+  margin-top: 0.75rem;
+  color: $grey2;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+
+  @media screen and (min-width: 700px) {
+    font-size: 1.5rem;
+  }
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link {
+  @include textLink;
+}
+
+.footer {
+  @include bodyTextS;
+  text-align: center;
+  color: $grey2;
+  padding: 45px 25px;
+}

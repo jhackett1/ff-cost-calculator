@@ -9,15 +9,17 @@
 .legend {
   @include bodyTextXL;
   font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 .panel {
   position: relative;
-  background: white;
+  background: $bg;
   border-radius: 10px;
   padding: 15px;
-  box-shadow: 0px 5px 10px transparentize($text, 0.95);
   padding-left: 55px;
+  box-shadow: 0px 0px 0px 0px transparent;
+  transition: box-shadow 0.1s ease-out;
 
   &:focus-within {
     box-shadow: 0px 0px 0px 3px $focus;
@@ -88,12 +90,32 @@
 }
 
 .help {
+  margin-bottom: 2rem;
+
   summary {
     color: $link;
     cursor: pointer;
+    margin-bottom: 0.75rem;
+
+    // might not work everywhere
+    display: inline flow-root list-item;
+
+    &:focus {
+      background: $focus;
+      outline: 3px solid $focus;
+      color: white;
+    }
 
     &:text {
       text-decoration: underline;
     }
   }
+}
+
+.helpText {
+  color: $text;
+  @include bodyTextM;
+  margin-left: 2px;
+  padding-left: 10px;
+  border-left: 3px solid $bg;
 }

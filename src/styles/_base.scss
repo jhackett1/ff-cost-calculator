@@ -3,32 +3,10 @@ $text: #333333;
 $link: #77755d;
 $bg: #efefef;
 
-$focus: #4752eb;
+$focus: #003cff;
 $grey1: $text;
 $grey2: #717171;
 $grey3: #cccbc3;
 $grey4: $bg;
 
-@mixin fixedWidthContainer {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 700px;
-}
-
-@mixin bodyTextS {
-  font-size: 0.8rem;
-  line-height: 120%;
-}
-
-@mixin bodyTextM {
-  font-size: 1rem;
-  line-height: 140%;
-}
-
-@mixin bodyTextL {
-  font-size: 1.2rem;
-}
-
-@mixin bodyTextXL {
-  font-size: 1.4rem;
-}
+@import "_mixins";

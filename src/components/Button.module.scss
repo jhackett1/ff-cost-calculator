@@ -9,6 +9,8 @@
   border: none;
   margin-bottom: 3px;
   font-weight: bold;
+  margin-top: 1.5rem;
+  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
 
   // spacing between icon and text
   display: flex;
@@ -32,6 +34,11 @@
     color: $grey3;
     background: $bg;
     box-shadow: none;
+  }
+
+  @media screen and (min-width: 700px) {
+    width: inherit;
+    padding: 12px 55px;
   }
 }
 

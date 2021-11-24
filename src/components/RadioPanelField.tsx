@@ -34,14 +34,15 @@ const RadioPanelField = ({
 }: Props): React.ReactElement => (
   <fieldset className={s.fieldset}>
     <legend className={s.legend}>{question}</legend>
-    {choices.map(choice => (
-      <RadioPanel key={choice.value} {...choice} />
-    ))}
 
     <details className={s.help}>
       <summary>Help me choose</summary>
-      {guidance}
+      <div className={s.helpText}>{guidance}</div>
     </details>
+
+    {choices.map(choice => (
+      <RadioPanel key={choice.value} {...choice} />
+    ))}
   </fieldset>
 )
 

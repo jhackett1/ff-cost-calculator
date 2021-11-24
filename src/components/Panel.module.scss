@@ -12,6 +12,10 @@
 
 .inner {
   padding: 25px;
+
+  @media screen and (min-width: 700px) {
+    padding: 35px;
+  }
 }
 
 @mixin header {

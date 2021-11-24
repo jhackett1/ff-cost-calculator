@@ -38,8 +38,7 @@
     height: 20px;
     content: "";
     display: block;
-    border: 2px solid darken($grey4, 10);
-    background: darken($grey4, 5);
+    border: 2px solid $grey3;
     border-radius: 100%;
     transition: 0.2s ease-out;
   }

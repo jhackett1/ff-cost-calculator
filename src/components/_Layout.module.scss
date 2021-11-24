@@ -1,8 +1,24 @@
 @import "../styles/_base";
 
-.main {
+.wrapper {
   @include fixedWidthContainer;
   padding: 0px 15px;
+}
+
+.skipLink {
+  display: block;
+  text-align: center;
+  background: $focus;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  position: absolute;
+  top: -1000px;
+
+  &:focus {
+    position: relative;
+    top: 0;
+  }
 }
 
 .header {

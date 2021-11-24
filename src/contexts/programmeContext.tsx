@@ -12,7 +12,7 @@ const ProgrammeContext = createContext<ProgrammeContextType>({
   programme: {
     projects: [],
   },
-  addProject: () => null,
+  addProject: (newProject: Project) => null,
   removeProject: () => null,
   startOver: () => null,
 })

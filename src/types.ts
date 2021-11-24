@@ -7,9 +7,9 @@ export interface Programme {
 
 /** a single piece of work */
 export interface Project {
-  name: string
-  type: ProjectType
-  delivery: DeliveryType
+  name?: string
+  type?: ProjectType
+  delivery?: DeliveryType
 }
 
 export enum DeliveryType {

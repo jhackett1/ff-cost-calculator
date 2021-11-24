@@ -1,7 +1,9 @@
+/** a collection of projects */
 export interface Programme {
   projects: Project[]
 }
 
+/** a single piece of work */
 export interface Project {
   name: string
   type: ProjectType
@@ -16,4 +18,12 @@ export enum DeliveryType {
 export enum ProjectType {
   Big,
   Small,
+}
+
+export interface Choice {
+  icon?: React.ReactChild
+  label: string
+  hint: string
+  name: string
+  value: string
 }

@@ -33,3 +33,7 @@ fieldset {
 body {
   margin: 0;
 }
+
+p a {
+  @include textLink;
+}

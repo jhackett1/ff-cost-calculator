@@ -13,7 +13,7 @@ const ProjectNicknamePage = () => {
     <Layout title="Add a new project">
       <Panel>
         <Formik
-          onSubmit={async () => push("/programme")}
+          onSubmit={async () => push("/programme", {})}
           initialValues={{ foo: "" }}
         >
           <Form>

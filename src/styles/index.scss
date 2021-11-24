@@ -3,3 +3,7 @@
 @import "_base";
 @import "_mixins";
 @import "globals";
+
+.bigText {
+  @include bodyTextL;
+}

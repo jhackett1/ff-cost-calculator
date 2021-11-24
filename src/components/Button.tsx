@@ -25,6 +25,7 @@ const Button = ({
         {...props}
       >
         {children}
+        {icon}
       </Link>
     )
 
@@ -33,8 +34,8 @@ const Button = ({
       className={secondary ? s.secondaryButton : s.primaryButton}
       {...props}
     >
-      {icon}
       {children}
+      {icon}
     </button>
   )
 }

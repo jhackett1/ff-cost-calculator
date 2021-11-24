@@ -2,6 +2,8 @@
 
 @mixin button {
   @include bodyTextM;
+  text-decoration: none;
+  color: $text;
   cursor: pointer;
   padding: 12px;
   width: 100%;
@@ -37,7 +39,8 @@
   }
 
   @media screen and (min-width: 700px) {
-    width: inherit;
+    width: max-content;
+    display: flex;
     padding: 12px 55px;
   }
 }

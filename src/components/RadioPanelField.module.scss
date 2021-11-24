@@ -90,12 +90,12 @@
 }
 
 .help {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 
   summary {
     color: $link;
     cursor: pointer;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
 
     // might not work everywhere
     display: inline flow-root list-item;

@@ -6,7 +6,7 @@
 
 @mixin bodyTextS {
   font-size: 0.8rem;
-  line-height: 120%;
+  line-height: 140%;
 }
 
 @mixin bodyTextM {
@@ -16,10 +16,12 @@
 
 @mixin bodyTextL {
   font-size: 1.2rem;
+  line-height: 120%;
 }
 
 @mixin bodyTextXL {
   font-size: 1.4rem;
+  line-height: 120%;
 
   @media screen and (min-width: 700px) {
     font-size: 1.6rem;

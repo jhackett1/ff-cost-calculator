@@ -1,4 +1,5 @@
 import { Form, Formik } from "formik"
+import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import Button from "../components/Button"
 import Panel from "../components/Panel"
@@ -23,7 +24,6 @@ const ProjectNewPage = () => {
         >
           {({ values }) => (
             <Form>
-              {JSON.stringify(values)}
               <RadioPanelField
                 question="First, what kind of work do you want to do?"
                 choices={[

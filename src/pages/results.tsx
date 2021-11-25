@@ -1,5 +1,6 @@
-import { useParams } from "react-router-dom"
+import { useLocation, useParams } from "react-router-dom"
 import Button from "../components/Button"
+import ClickToCopy from "../components/ClickToCopy"
 import Panel from "../components/Panel"
 import Layout from "../components/_Layout"
 
@@ -12,7 +13,8 @@ const ResultsPage = () => {
         <p>id: {id}</p>
       </Panel>
       <Panel title="Share results" colour="yellow">
-        <p>Found this useful? Why not share with a colleague?</p>
+        <p>Found this useful? Why not share with a colleague:</p>
+        <ClickToCopy text={window.location.href} />
         <p>
           Or <a href="/">share by email</a>.
         </p>
@@ -27,22 +29,22 @@ const ResultsPage = () => {
                 d="M2.25736 8L6.5 12.2426L10.7426 8"
                 stroke="#333333"
                 stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M6.5 1V12"
                 stroke="#333333"
                 stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M1.5 14L11.5 14"
                 stroke="#333333"
                 stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           }

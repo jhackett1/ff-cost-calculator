@@ -1,4 +1,5 @@
 import { Form, Formik } from "formik"
+import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import Button from "../components/Button"
 import Panel from "../components/Panel"
@@ -8,7 +9,12 @@ import { useDraftProject } from "../hooks/useDraftProject"
 
 const ProjectDeliveryPage = () => {
   const push = useNavigate()
-  const { addToProject } = useDraftProject()
+  const { addToProject, isEmpty } = useDraftProject()
+
+  // return to start if we don't have a wip project
+  useEffect(() => {
+    if (isEmpty) push("/")
+  }, [isEmpty, push])
 
   return (
     <Layout title="Add a new project">

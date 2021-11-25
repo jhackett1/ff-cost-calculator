@@ -1,3 +1,7 @@
+@mixin fontFamily {
+  font-family: "Inter", sans-serif;
+}
+
 @mixin fixedWidthContainer {
   margin-left: auto;
   margin-right: auto;

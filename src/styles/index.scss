@@ -7,3 +7,9 @@
 .bigText {
   @include bodyTextL;
 }
+
+.visually-hidden {
+  font-size: 0;
+  opacity: 0;
+  position: absolute;
+}

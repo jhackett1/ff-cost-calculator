@@ -1,10 +1,8 @@
 // import { useParams } from "react-router-dom"
 import {
   Area,
-  CartesianAxis,
   CartesianGrid,
   ComposedChart,
-  Legend,
   Line,
   ResponsiveContainer,
   Tooltip,

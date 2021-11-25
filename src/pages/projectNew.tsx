@@ -7,7 +7,7 @@ import Panel from "../components/Panel"
 import RadioPanelField from "../components/RadioPanelField"
 import Layout from "../components/_Layout"
 import { useDraftProject } from "../hooks/useDraftProject"
-import { DeliveryType, Project, ProjectType } from "../types"
+import { Project, ProjectType } from "../types"
 import { projectNewSchema } from "../validators"
 
 const ProjectNewPage = () => {

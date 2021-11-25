@@ -1,9 +1,7 @@
 @import "../styles/_base";
 
-.section {
-  background: white;
+@mixin section {
   border-radius: 10px;
-  box-shadow: 0px 5px 10px transparentize($text, 0.85);
 
   & + section {
     margin-top: 1rem;
@@ -14,6 +12,18 @@
   }
 
   animation: fadeIn 0.3s ease-out;
+}
+
+.section {
+  @include section;
+  background: white;
+  box-shadow: 0px 5px 10px transparentize($text, 0.85);
+}
+
+.glassSection {
+  @include section;
+  // background: transparentize(white, 0.5);
+  border: 2px solid white;
 }
 
 .inner {
@@ -36,6 +46,16 @@
     color: white;
   }
 }
+
+.headerGlass {
+  @include header;
+  border-radius: 5px 5px 0px 0px;
+  background-color: white;
+  h2 {
+    color: $text;
+  }
+}
+
 .headerBlue {
   @include header;
   background-color: $focus;

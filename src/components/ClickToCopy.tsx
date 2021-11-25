@@ -15,7 +15,7 @@ const ClickToCopy = ({ text = "test text" }: Props) => {
       data-clipboard-text={text}
       onClick={() => setClicked(!clicked)}
     >
-      {clicked ? "Copied to clipboard" : text}
+      <span>{clicked ? "Copied to clipboard" : text}</span>
 
       <svg width="21" height="15" viewBox="0 0 21 15" fill="none">
         <path

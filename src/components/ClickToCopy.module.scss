@@ -17,12 +17,19 @@
   box-shadow: 0px 0px 0px 0px transparent;
   transition: box-shadow 0.1s ease-out;
 
+  span {
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-right: 7px;
+  }
+
   &:hover {
     background: darken($bg, 5);
   }
 
   &:active {
-    background: $grey3;
+    background: white;
 
     svg path,
     svg rect {

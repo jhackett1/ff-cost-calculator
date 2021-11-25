@@ -1,19 +1,101 @@
 import { useParams } from "react-router-dom"
+import {
+  Area,
+  CartesianGrid,
+  ComposedChart,
+  Legend,
+  Line,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts"
 import Button from "../components/Button"
 import ClickToCopy from "../components/ClickToCopy"
 import Panel from "../components/Panel"
 import Layout from "../components/_Layout"
 
+const data = [
+  {
+    name: "Page A",
+    uv: 4000,
+    pv: 2400,
+    amt: 2400,
+  },
+  {
+    name: "Page B",
+    uv: 3000,
+    pv: 1398,
+    amt: 2210,
+  },
+  {
+    name: "Page C",
+    uv: 2000,
+    pv: 9800,
+    amt: 2290,
+  },
+  {
+    name: "Page D",
+    uv: 2780,
+    pv: 3908,
+    amt: 2000,
+  },
+  {
+    name: "Page E",
+    uv: 1890,
+    pv: 4800,
+    amt: 2181,
+  },
+  {
+    name: "Page F",
+    uv: 2390,
+    pv: 3800,
+    amt: 2500,
+  },
+  {
+    name: "Page G",
+    uv: 3490,
+    pv: 4300,
+    amt: 2100,
+  },
+]
+
 const ResultsPage = () => {
-  const { id } = useParams()
+  // const { id } = useParams()
 
   return (
     <Layout title="Your estimate">
-      <Panel title="Spend forecast" colour="blue">
-        <p>id: {id}</p>
+      <Panel title="Cumulative spend forecast" colour="blue">
+        <ResponsiveContainer width="100%" height={400}>
+          <ComposedChart data={data}>
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+
+            <CartesianGrid stroke="#f4f4f4" />
+
+            <Area
+              type="monotone"
+              dataKey="amt"
+              fill="#0059ff"
+              stroke="#0059ff"
+              strokeWidth={0}
+            />
+
+            <Line
+              type="monotone"
+              dataKey="uv"
+              stroke="#0059ff"
+              strokeWidth={2}
+            />
+          </ComposedChart>
+        </ResponsiveContainer>
       </Panel>
 
-      <Panel title="What we assumed">Blah blah</Panel>
+      <Panel colour="glass">
+        Some information about things that we assumed during the calculation
+      </Panel>
 
       <Panel title="Share results" colour="yellow">
         <p>Found this useful? Why not share with a colleague:</p>

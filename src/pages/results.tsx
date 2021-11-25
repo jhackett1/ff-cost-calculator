@@ -12,6 +12,9 @@ const ResultsPage = () => {
       <Panel title="Spend forecast" colour="blue">
         <p>id: {id}</p>
       </Panel>
+
+      <Panel title="What we assumed">Blah blah</Panel>
+
       <Panel title="Share results" colour="yellow">
         <p>Found this useful? Why not share with a colleague:</p>
         <ClickToCopy text={window.location.href} />
@@ -19,6 +22,7 @@ const ResultsPage = () => {
           Or <a href="/">share by email</a>.
         </p>
       </Panel>
+
       <Panel title="Download" colour="yellow">
         <p>You can also download your results as a spreadsheet (CSV).</p>
         <Button

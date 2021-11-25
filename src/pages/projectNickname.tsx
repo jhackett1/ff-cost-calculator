@@ -10,7 +10,7 @@ import { useProgramme } from "../hooks/useProgramme"
 
 const ProjectNicknamePage = () => {
   const push = useNavigate()
-  const { project, addAndSaveToProgramme, isEmpty } = useDraftProject()
+  const { addAndSaveToProgramme, isEmpty } = useDraftProject()
   const { programme } = useProgramme()
 
   const defaultNickname = `Project ${programme.projects.length + 1}`

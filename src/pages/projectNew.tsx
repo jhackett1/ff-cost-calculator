@@ -1,5 +1,4 @@
 import { Form, Formik } from "formik"
-import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import Button from "../components/Button"
 import Panel from "../components/Panel"

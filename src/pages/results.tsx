@@ -1,4 +1,4 @@
-import { useLocation, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import Button from "../components/Button"
 import ClickToCopy from "../components/ClickToCopy"
 import Panel from "../components/Panel"

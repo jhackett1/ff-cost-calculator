@@ -1,4 +1,6 @@
 import { useProgramme } from "../hooks/useProgramme"
+import { prettyDeliveryType, prettyProjectType } from "../lib/formatters"
+import { DeliveryType, ProjectType } from "../types"
 import s from "./ProjectList.module.scss"
 
 const ProjectList = (): React.ReactElement => {
@@ -20,7 +22,8 @@ const ProjectList = (): React.ReactElement => {
             <div>
               <h3 className={s.name}>{project.nickname}</h3>
               <p className={s.meta}>
-                {project.delivery} · {project.type}
+                {prettyDeliveryType[project.delivery as DeliveryType]} ·{" "}
+                {prettyProjectType[project.type as ProjectType]}
               </p>
             </div>
 

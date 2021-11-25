@@ -3,7 +3,7 @@ import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import Button from "../components/Button"
 import Dots from "../components/Dots"
-import FormErrors from "../components/FormErrors"
+import ErrorSummary from "../components/ErrorSummary"
 import Panel from "../components/Panel"
 import RadioPanelField from "../components/RadioPanelField"
 import Layout from "../components/_Layout"
@@ -75,7 +75,7 @@ const ProjectDeliveryPage = () => {
                 guidance="Stuff goes here"
               />
 
-              <FormErrors />
+              <ErrorSummary />
 
               <Button disabled={!isValid}>Next</Button>
             </Form>

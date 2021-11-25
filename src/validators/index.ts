@@ -14,7 +14,7 @@ export const projectDeliverySchema = Yup.object().shape({
 })
 
 export const projectNicknameSchema = Yup.object().shape({
-  nickname: Yup.string(),
+  nickname: Yup.string().required("You need to give a nickname"),
 })
 
 export const savedResultSchema = Yup.object().shape({

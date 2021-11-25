@@ -1,7 +1,7 @@
 import { FormikValues, useFormikContext } from "formik"
-import s from "./FormErrors.module.scss"
+import s from "./ErrorSummary.module.scss"
 
-const FormErrors = () => {
+const ErrorSummary = () => {
   const { errors } = useFormikContext<FormikValues>()
 
   if (Object.keys(errors).length > 0)
@@ -14,4 +14,4 @@ const FormErrors = () => {
   return null
 }
 
-export default FormErrors
+export default ErrorSummary

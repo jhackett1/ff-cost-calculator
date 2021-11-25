@@ -73,8 +73,8 @@ const ResultsPage = () => {
           <ComposedChart data={data}>
             <XAxis dataKey="name" />
             <YAxis />
+
             <Tooltip />
-            <Legend />
 
             <CartesianGrid stroke="#f4f4f4" />
 

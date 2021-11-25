@@ -100,14 +100,18 @@
     // might not work everywhere
     display: inline flow-root list-item;
 
+    span {
+      text-decoration: underline;
+    }
+
+    &:hover span {
+      text-decoration: none;
+    }
+
     &:focus {
       background: $focus;
       outline: 3px solid $focus;
       color: white;
-    }
-
-    &:text {
-      text-decoration: underline;
     }
   }
 }

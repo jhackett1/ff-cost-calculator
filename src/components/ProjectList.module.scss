@@ -18,7 +18,8 @@
     opacity: 0;
   }
 
-  &:hover button {
+  &:hover button,
+  &:focus-within button {
     opacity: 1;
   }
 

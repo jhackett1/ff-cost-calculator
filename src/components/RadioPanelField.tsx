@@ -37,7 +37,9 @@ const RadioPanelField = ({
     <legend className={s.legend}>{question}</legend>
 
     <details className={s.help}>
-      <summary>Help me choose</summary>
+      <summary>
+        <span>Help me choose</span>
+      </summary>
       <div className={s.helpText}>{guidance}</div>
     </details>
 

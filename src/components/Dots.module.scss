@@ -1,0 +1,21 @@
+@import "../styles/_base";
+
+.dots {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  margin-top: 2rem;
+
+  div {
+    width: 10px;
+    height: 10px;
+    border-radius: 100px;
+    background: darken($bg, 10);
+  }
+}
+
+div.filledDot {
+  background: $text;
+}

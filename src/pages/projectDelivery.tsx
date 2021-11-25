@@ -2,6 +2,7 @@ import { Form, Formik } from "formik"
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import Button from "../components/Button"
+import Dots from "../components/Dots"
 import Panel from "../components/Panel"
 import RadioPanelField from "../components/RadioPanelField"
 import Layout from "../components/_Layout"
@@ -72,6 +73,8 @@ const ProjectDeliveryPage = () => {
             <Button>Next</Button>
           </Form>
         </Formik>
+
+        <Dots filled={2} unfilled={1} />
       </Panel>
     </Layout>
   )

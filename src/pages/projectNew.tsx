@@ -1,6 +1,7 @@
 import { Form, Formik } from "formik"
 import { useNavigate } from "react-router-dom"
 import Button from "../components/Button"
+import Dots from "../components/Dots"
 import Panel from "../components/Panel"
 import RadioPanelField from "../components/RadioPanelField"
 import Layout from "../components/_Layout"
@@ -64,6 +65,8 @@ const ProjectNewPage = () => {
             </Form>
           )}
         </Formik>
+
+        <Dots filled={1} unfilled={2} />
       </Panel>
     </Layout>
   )

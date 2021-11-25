@@ -24,7 +24,7 @@
   @include bodyTextM;
   padding: 10px;
   border-radius: 5px;
-  border: 2px solid $grey2;
+  border: 2px solid $grey3;
   margin-top: 0.5rem;
   width: 100%;
 
@@ -34,7 +34,7 @@
 
   &:focus {
     outline: none;
-    border-color: $text;
-    box-shadow: 0px 0px 0px 3px $focus;
+    border-color: $focus;
+    box-shadow: 0px 0px 0px 1px $focus;
   }
 }

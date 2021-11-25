@@ -2,6 +2,7 @@ import { Form, Formik } from "formik"
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import Button from "../components/Button"
+import Dots from "../components/Dots"
 import Panel from "../components/Panel"
 import TextField from "../components/TextField"
 import Layout from "../components/_Layout"
@@ -34,7 +35,7 @@ const ProjectNicknamePage = () => {
           initialValues={{ nickname: "" }}
         >
           <Form>
-            <h2>Just a few more questions</h2>
+            <h2>Just a few more questions...</h2>
 
             <TextField
               name="nickname"
@@ -46,6 +47,8 @@ const ProjectNicknamePage = () => {
             <Button>Next</Button>
           </Form>
         </Formik>
+
+        <Dots filled={3} unfilled={0} />
       </Panel>
     </Layout>
   )

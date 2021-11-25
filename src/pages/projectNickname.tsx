@@ -30,11 +30,12 @@ const ProjectNicknamePage = () => {
         <Formik
           onSubmit={async values => {
             addAndSaveToProgramme({
+              ...values,
               nickname: values.nickname || defaultNickname,
             })
             push("/programme")
           }}
-          initialValues={{ nickname: "" }}
+          initialValues={{ nickname: undefined, startDate: undefined }}
           validationSchema={projectNicknameSchema}
         >
           {({ isValid }) => (
@@ -48,9 +49,17 @@ const ProjectNicknamePage = () => {
                 placeholder={defaultNickname}
               />
 
+              <TextField
+                type="date"
+                name="startDate"
+                label="When will the project start?"
+                hint="A rough answer is fine"
+                placeholder={defaultNickname}
+              />
+
               <ErrorSummary />
 
-              <Button disabled={!isValid}>Next</Button>
+              <Button>Next</Button>
             </Form>
           )}
         </Formik>

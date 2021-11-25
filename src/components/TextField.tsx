@@ -7,9 +7,17 @@ interface Props {
   hint?: string
   placeholder?: string
   required?: boolean
+  [key: string]: any
 }
 
-const TextField = ({ name, label, hint, required, placeholder }: Props) => {
+const TextField = ({
+  name,
+  label,
+  hint,
+  required,
+  placeholder,
+  ...props
+}: Props) => {
   const { touched, errors } = useFormikContext<FormikValues>()
   const errorToShow = touched[name] && errors[name]
 
@@ -34,6 +42,7 @@ const TextField = ({ name, label, hint, required, placeholder }: Props) => {
         placeholder={placeholder}
         aria-describedby={hint && `${name}-hint`}
         required={required}
+        {...props}
       />
     </div>
   )

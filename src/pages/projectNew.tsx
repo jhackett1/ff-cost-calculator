@@ -25,7 +25,7 @@ const ProjectNewPage = () => {
           initialValues={{ type: undefined } as Project}
           validationSchema={projectNewSchema}
         >
-          {({ errors }) => (
+          {({ isValid }) => (
             <Form>
               <RadioPanelField
                 question="First, what kind of work do you want to do?"
@@ -66,7 +66,7 @@ const ProjectNewPage = () => {
 
               <ErrorSummary />
 
-              <Button disabled={!errors}>Next</Button>
+              <Button disabled={!isValid}>Next</Button>
             </Form>
           )}
         </Formik>

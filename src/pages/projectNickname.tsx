@@ -3,11 +3,13 @@ import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import Button from "../components/Button"
 import Dots from "../components/Dots"
+import FormErrors from "../components/FormErrors"
 import Panel from "../components/Panel"
 import TextField from "../components/TextField"
 import Layout from "../components/_Layout"
 import { useDraftProject } from "../hooks/useDraftProject"
 import { useProgramme } from "../hooks/useProgramme"
+import { projectNicknameSchema } from "../validators"
 
 const ProjectNicknamePage = () => {
   const push = useNavigate()
@@ -33,19 +35,24 @@ const ProjectNicknamePage = () => {
             push("/programme")
           }}
           initialValues={{ nickname: "" }}
+          validationSchema={projectNicknameSchema}
         >
-          <Form>
-            <h2>Just a few more questions...</h2>
+          {({ isValid }) => (
+            <Form>
+              <h2>Just a few more questions...</h2>
 
-            <TextField
-              name="nickname"
-              label="Nickname"
-              hint="So you can easily refer to it later"
-              placeholder={defaultNickname}
-            />
+              <TextField
+                name="nickname"
+                label="Nickname"
+                hint="So you can easily refer to it later"
+                placeholder={defaultNickname}
+              />
 
-            <Button>Next</Button>
-          </Form>
+              <FormErrors />
+
+              <Button disabled={!isValid}>Next</Button>
+            </Form>
+          )}
         </Formik>
 
         <Dots filled={3} unfilled={0} />

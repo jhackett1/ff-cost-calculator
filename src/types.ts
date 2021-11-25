@@ -13,13 +13,13 @@ export interface Project {
 }
 
 export enum DeliveryType {
-  InHouse,
-  Tender,
+  InHouse = "INHOUSE",
+  Tender = "TENDER",
 }
 
 export enum ProjectType {
-  Big,
-  Small,
+  Big = "BIG",
+  Small = "SMALL",
 }
 
 export interface Choice {

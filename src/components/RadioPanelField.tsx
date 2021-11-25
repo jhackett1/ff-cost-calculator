@@ -1,4 +1,4 @@
-import { Field } from "formik"
+import { Field, FormikValues, useFormikContext } from "formik"
 import { Choice } from "../types"
 import s from "./RadioPanelField.module.scss"
 
@@ -32,21 +32,28 @@ const RadioPanelField = ({
   question,
   choices,
   guidance,
-}: Props): React.ReactElement => (
-  <fieldset className={s.fieldset}>
-    <legend className={s.legend}>{question}</legend>
+}: Props): React.ReactElement => {
+  const { touched, errors } = useFormikContext<FormikValues>()
+  const errorToShow = touched[choices[0].name] && errors[choices[0].name]
 
-    <details className={s.help}>
-      <summary>
-        <span>Help me choose</span>
-      </summary>
-      <div className={s.helpText}>{guidance}</div>
-    </details>
+  return (
+    <fieldset className={s.fieldset}>
+      <legend className={s.legend}>{question}</legend>
 
-    {choices.map(choice => (
-      <RadioPanel key={choice.value} {...choice} />
-    ))}
-  </fieldset>
-)
+      {errorToShow && <p className={s.error}>{errorToShow}</p>}
+
+      <details className={s.help}>
+        <summary>
+          <span>Help me choose</span>
+        </summary>
+        <div className={s.helpText}>{guidance}</div>
+      </details>
+
+      {choices.map(choice => (
+        <RadioPanel key={choice.value} {...choice} />
+      ))}
+    </fieldset>
+  )
+}
 
 export default RadioPanelField

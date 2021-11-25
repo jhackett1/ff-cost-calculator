@@ -12,6 +12,13 @@
   margin-bottom: 1rem;
 }
 
+.error {
+  margin-top: 0.5rem;
+  @include bodyTextM;
+  color: $error;
+  font-weight: bold;
+}
+
 .panel {
   position: relative;
   background: $bg;

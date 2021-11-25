@@ -2,11 +2,13 @@ import { Form, Formik } from "formik"
 import { useNavigate } from "react-router-dom"
 import Button from "../components/Button"
 import Dots from "../components/Dots"
+import FormErrors from "../components/FormErrors"
 import Panel from "../components/Panel"
 import RadioPanelField from "../components/RadioPanelField"
 import Layout from "../components/_Layout"
 import { useDraftProject } from "../hooks/useDraftProject"
-import { Project } from "../types"
+import { DeliveryType, Project, ProjectType } from "../types"
+import { projectNewSchema } from "../validators"
 
 const ProjectNewPage = () => {
   const push = useNavigate()
@@ -21,8 +23,9 @@ const ProjectNewPage = () => {
             push("/project/delivery")
           }}
           initialValues={{ type: undefined } as Project}
+          validationSchema={projectNewSchema}
         >
-          {({ values }) => (
+          {({ errors }) => (
             <Form>
               <RadioPanelField
                 question="First, what kind of work do you want to do?"
@@ -30,7 +33,7 @@ const ProjectNewPage = () => {
                   {
                     name: "type",
                     label: "Experiment with a new idea",
-                    value: "experiment",
+                    value: ProjectType.Small,
                     hint: (
                       <p>
                         The most important thing is learning about a problem
@@ -42,7 +45,7 @@ const ProjectNewPage = () => {
                   {
                     name: "type",
                     label: "Build a new live service",
-                    value: "build",
+                    value: ProjectType.Big,
                     hint: (
                       <>
                         <p>
@@ -61,7 +64,9 @@ const ProjectNewPage = () => {
                 guidance="Stuff goes here"
               />
 
-              <Button>Next</Button>
+              <FormErrors />
+
+              <Button disabled={!errors}>Next</Button>
             </Form>
           )}
         </Formik>

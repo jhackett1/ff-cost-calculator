@@ -2,7 +2,7 @@
 
 .wrapper {
   @include fixedWidthContainer;
-  padding: 0px 15px;
+  padding: 0px 25px;
 }
 
 .skipLink {
@@ -22,14 +22,14 @@
 }
 
 .header {
-  padding: 15px 0px;
+  padding: 25px 0px;
 }
 
 .headline {
   margin-top: 3rem;
   font-size: 3rem;
   margin-bottom: 0;
-  animation: fadeIn 0.1s ease-out;
+  animation: fadeIn 0.2s ease-out;
 
   @media screen and (min-width: 700px) {
     font-size: 4rem;
@@ -40,7 +40,7 @@
   margin-top: 3rem;
   margin-bottom: 1.5rem;
   font-size: 2rem;
-  animation: fadeIn 0.1s ease-out;
+  animation: fadeIn 0.2s ease-out;
 
   @media screen and (min-width: 700px) {
     font-size: 2.5rem;

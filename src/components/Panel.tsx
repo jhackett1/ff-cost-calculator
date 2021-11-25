@@ -3,18 +3,16 @@ import s from "./Panel.module.scss"
 interface Props {
   children: React.ReactChild | React.ReactChild[]
   title?: string
-  colour?: "blue" | "yellow" | "glass"
+  colour?: "blue" | "yellow"
 }
 
 const Panel = ({ children, title, colour }: Props): React.ReactElement => (
-  <section className={colour === "glass" ? s.glassSection : s.section}>
+  <section className={s.section}>
     {title && (
       <header
         className={
           colour === "blue"
             ? s.headerBlue
-            : colour === "glass"
-            ? s.headerGlass
             : colour === "yellow"
             ? s.headerYellow
             : s.headerBlack

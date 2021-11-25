@@ -1,33 +1,30 @@
 @import "../styles/_base";
 
-@mixin section {
-  border-radius: 10px;
-
-  & + section {
-    margin-top: 1rem;
-  }
-
-  *:first-child {
-    margin-top: 0;
-  }
-
-  animation: fadeIn 0.3s ease-out;
-}
-
 .section {
-  @include section;
+  border-radius: 10px;
   background: white;
   box-shadow: 0px 5px 10px transparentize($text, 0.85);
-}
 
-.glassSection {
-  @include section;
-  // background: transparentize(white, 0.5);
-  border: 2px solid white;
+  animation: fadeIn 0.2s ease-out;
+  animation-delay: 0.1s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+
+  & + section {
+    margin-top: 1.5rem;
+  }
 }
 
 .inner {
   padding: 25px;
+
+  & > *:first-child {
+    margin-top: 0;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
 
   @media screen and (min-width: 700px) {
     padding: 35px;

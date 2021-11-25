@@ -8,14 +8,14 @@ interface Props {
   icon?: React.ReactChild
   secondary?: boolean
   [key: string]: any
-  iconLeft?: boolean
+  // iconLeft?: boolean
 }
 
 const Button = ({
   children,
   href,
   icon,
-  iconLeft,
+  // iconLeft,
   secondary,
   ...props
 }: Props): React.ReactElement => {

@@ -1,0 +1,25 @@
+@import "../styles/_base";
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+
+.stat {
+}
+
+.value {
+  margin-left: 0;
+  @include bodyTextXXL;
+  font-weight: bold;
+  color: $text;
+}
+
+.caption {
+  margin-top: 0.25rem;
+  @include bodyTextS;
+  color: $grey2;
+}

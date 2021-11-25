@@ -34,15 +34,10 @@
   &:disabled {
     cursor: not-allowed;
     color: $grey3;
-    background: $bg;
+    background: $bg !important;
     box-shadow: none;
+    transform: translateY(0px) !important;
   }
-
-  // @media screen and (min-width: 700px) {
-  //   width: max-content;
-  //   display: flex;
-  //   padding: 12px 55px;
-  // }
 }
 
 .primaryButton {

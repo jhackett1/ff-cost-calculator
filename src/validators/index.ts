@@ -18,7 +18,17 @@ export const projectNicknameSchema = Yup.object().shape({
   startDate: Yup.date().required("You need to give a start date"),
 })
 
-export const savedResultSchema = Yup.object().shape({
-  foo: Yup.string(),
-  bar: Yup.string(),
+export const storedProgrammeSchema = Yup.object().shape({
+  projects: Yup.array().of(
+    Yup.object().shape({
+      type: Yup.string()
+        .oneOf(Object.values(ProjectType) as string[])
+        .required("You need to give a project type"),
+      delivery: Yup.string()
+        .oneOf(Object.values(DeliveryType) as string[])
+        .required("You need to choose a delivery method"),
+      nickname: Yup.string().required("You need to give a nickname"),
+      startDate: Yup.date().required("You need to give a start date"),
+    })
+  ),
 })

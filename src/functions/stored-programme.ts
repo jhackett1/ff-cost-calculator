@@ -1,11 +1,18 @@
 import { Handler } from "@netlify/functions"
-import faunadb, { query as q } from "faunadb"
-import { savedResultSchema } from "../validators"
+import faunadb, { query as q, values as v } from "faunadb"
+import { storedProgrammeSchema } from "../validators"
 import { nanoid } from "nanoid"
-import { Programme } from "../types"
+import { Programme, StoredProgramme } from "../types"
+import { FAUNADB_COLLECTION, FAUNADB_INDEX } from "../config"
 
 export const handler: Handler = async (event, context) => {
   try {
+    // if (event.headers["Referrer"]?.startsWith(process.env.URL as string))
+    //   return {
+    //     statusCode: 400,
+    //     body: "Unauthorised",
+    //   }
+
     const db = new faunadb.Client({
       secret: process.env.FAUNADB_SECRET as string,
       domain: "db.eu.fauna.com",
@@ -16,20 +23,19 @@ export const handler: Handler = async (event, context) => {
       case "GET": {
         const { id } = event.queryStringParameters as { id?: string }
 
-        if (!id || !parseInt(id))
+        if (!id)
           return {
             statusCode: 404,
             body: "You must supply a valid ID",
           }
 
-        const result = await db.query(
-          q.Match(q.Index("resultsByRublicId"), id)
-          // q.Get(q.Ref(q.Collection("results"), ref))
+        const result: v.Document<StoredProgramme> = await db.query(
+          q.Get(q.Match(q.Index(FAUNADB_INDEX), id))
         )
 
         return {
           statusCode: 200,
-          body: JSON.stringify(result),
+          body: JSON.stringify(result.data),
           headers: {
             "content-type": "application/json",
           },
@@ -39,18 +45,20 @@ export const handler: Handler = async (event, context) => {
       case "POST": {
         const data = JSON.parse(event.body as string) as Programme
 
-        await savedResultSchema.validate(data)
+        await storedProgrammeSchema.validate(data)
 
-        const result = await db.query(
-          q.Create(q.Collection("results"), {
-            publicId: nanoid(10),
-            data,
+        const result: v.Document<StoredProgramme> = await db.query(
+          q.Create(q.Collection(FAUNADB_COLLECTION), {
+            data: {
+              publicId: nanoid(10),
+              ...data,
+            },
           })
         )
 
         return {
           statusCode: 201,
-          body: JSON.stringify(result),
+          body: JSON.stringify(result.data),
         }
       }
       default: {

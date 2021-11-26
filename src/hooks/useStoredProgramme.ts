@@ -1,10 +1,10 @@
 import useSWR, { SWRResponse } from "swr"
-import { Programme } from "../types"
+import { StoredProgramme } from "../types"
 
 /** using a unique shareable key, retrieve a stored programme from the api */
 export const useStoredProgramme = (
-  shareableKey: string
-): SWRResponse<Programme, Error> =>
-  useSWR(`/.netlify/functions/stored-programme?id=${shareableKey}`)
+  publicId: string
+): SWRResponse<StoredProgramme, Error> =>
+  useSWR(`/.netlify/functions/stored-programme?id=${publicId}`)
 
 export default useStoredProgramme

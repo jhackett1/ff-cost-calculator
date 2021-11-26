@@ -32,7 +32,7 @@ const App = () => (
 
         {/* results page and shareable variant */}
         <Route path="/results" element={<ResultsPage />} />
-        <Route path="/results/:id" element={<ResultsPage />} />
+        <Route path="/results/:publicId" element={<ResultsPage />} />
       </Routes>
     </Router>
   </ProgrammeProvider>

@@ -1,11 +1,12 @@
 import React, { createContext, useState } from "react"
-import { Programme, Project } from "../types"
+import { Programme, Project, StoredProgramme } from "../types"
 
 export interface ProgrammeContextType {
   programme: Programme
   addProject: (newProject: Project) => void
   removeProject: (index: number) => void
   startOver: () => void
+  storeProgramme: () => Promise<StoredProgramme | null>
 }
 
 const ProgrammeContext = createContext<ProgrammeContextType>({
@@ -15,6 +16,7 @@ const ProgrammeContext = createContext<ProgrammeContextType>({
   addProject: (newProject: Project) => null,
   removeProject: () => null,
   startOver: () => null,
+  storeProgramme: async () => await null,
 })
 
 export const ProgrammeProvider = ({
@@ -46,9 +48,24 @@ export const ProgrammeProvider = ({
       projects: [],
     })
 
+  /** save programme to fauna db */
+  const storeProgramme = async (): Promise<StoredProgramme | null> => {
+    const res = await fetch(`/.netlify/functions/stored-programme`, {
+      method: "POST",
+      body: JSON.stringify(programme),
+    })
+    return await res.json()
+  }
+
   return (
     <ProgrammeContext.Provider
-      value={{ programme, addProject, removeProject, startOver }}
+      value={{
+        programme,
+        addProject,
+        removeProject,
+        startOver,
+        storeProgramme,
+      }}
     >
       {children}
     </ProgrammeContext.Provider>

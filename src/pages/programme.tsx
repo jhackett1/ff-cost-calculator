@@ -8,8 +8,7 @@ const ProgrammePage = () => (
     <Panel>
       <ProjectList />
 
-      <p>Would you like to add another project?</p>
-      <Button href="/results">No, get my estimate</Button>
+      <Button href="/results">Get my estimate</Button>
       <Button
         href="/project/new"
         secondary
@@ -32,7 +31,7 @@ const ProgrammePage = () => (
           </svg>
         }
       >
-        Yes, add another
+        Or, add another project
       </Button>
     </Panel>
   </Layout>

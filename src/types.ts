@@ -1,5 +1,9 @@
 import React from "react"
 
+export interface StoredProgramme extends Programme {
+  publicId: string
+}
+
 /** a collection of projects */
 export interface Programme {
   projects: Project[]

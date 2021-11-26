@@ -4,7 +4,7 @@ import s from "./_Layout.module.scss"
 
 interface Props {
   title?: string
-  children: React.ReactChild | React.ReactChild[]
+  children: React.ReactChild | (React.ReactChild | undefined)[]
 }
 
 const Layout = ({ title, children }: Props): React.ReactElement => {

@@ -21,7 +21,7 @@ const ClickToCopy = ({ text = "test text" }: Props) => {
         <path
           d="M3.5 9.5H3C1.89543 9.5 1 8.60457 1 7.5V3.5C1 2.39543 1.89543 1.5 3 1.5H13C14.1046 1.5 15 2.39543 15 3.5V3.5"
           stroke="#CCCBC3"
-          stroke-width="2"
+          strokeWidth="2"
         />
         <rect
           x="6"
@@ -30,7 +30,7 @@ const ClickToCopy = ({ text = "test text" }: Props) => {
           height="8"
           rx="2"
           stroke="#CCCBC3"
-          stroke-width="2"
+          strokeWidth="2"
         />
       </svg>
     </Clipboard>

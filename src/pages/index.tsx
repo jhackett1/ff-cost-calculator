@@ -17,14 +17,14 @@ const IndexPage = () => (
             <path
               d="M8.37869 9.74264L12.6213 5.5L8.37869 1.25736"
               stroke="#333333"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
             <path
               d="M1.37866 5.5L12.3787 5.5"
               stroke="#333333"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
             />

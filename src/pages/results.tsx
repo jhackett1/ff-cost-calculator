@@ -1,105 +1,34 @@
-// import { useParams } from "react-router-dom"
-import {
-  Area,
-  CartesianGrid,
-  ComposedChart,
-  Line,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts"
+import { useEffect } from "react"
+import { useNavigate, useParams } from "react-router-dom"
 import Assumptions, { Assumption } from "../components/Assumptions"
 import Button from "../components/Button"
 import ClickToCopy from "../components/ClickToCopy"
 import Panel from "../components/Panel"
-import Stats, { Stat } from "../components/Stats"
-import Layout from "../components/_Layout"
+import ResultsPanel from "../components/ResultsPanel"
 
-const data = [
-  {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-]
+import Layout from "../components/_Layout"
+import { useProgramme } from "../hooks/useProgramme"
 
 const ResultsPage = () => {
-  // const { id } = useParams()
+  const { storeProgramme, programme } = useProgramme()
+  const push = useNavigate()
+  const { publicId } = useParams()
+
+  const save = async () => {
+    if (!publicId && programme.projects.length > 0) {
+      const result = await storeProgramme()
+      push(`/results/${result?.publicId}`, { replace: true })
+    }
+  }
+
+  useEffect(() => {
+    save()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <Layout title="Your estimate">
-      <Panel title="Cumulative spend forecast" colour="blue">
-        <ResponsiveContainer width="100%" height={400}>
-          <ComposedChart data={data}>
-            <XAxis dataKey="name" />
-            <YAxis />
-
-            <Tooltip />
-
-            <CartesianGrid stroke="#f4f4f4" />
-
-            <Area
-              type="monotone"
-              dataKey="amt"
-              fill="#0059ff"
-              stroke="#0059ff"
-              strokeWidth={0}
-            />
-
-            <Line
-              type="monotone"
-              dataKey="uv"
-              stroke="#0059ff"
-              strokeWidth={2}
-            />
-          </ComposedChart>
-        </ResponsiveContainer>
-
-        <Stats>
-          <Stat value="£0000" caption="Total spend" />
-          <Stat value="£00" caption="Another example caption" />
-          <Stat value="??" caption="Example caption" />
-          <Stat value="000" caption="Caption here" />
-        </Stats>
-      </Panel>
+      <ResultsPanel />
 
       <Panel>
         <Assumptions>
@@ -141,8 +70,8 @@ const ResultsPage = () => {
               >
                 <circle cx="32" cy="32" r="32" fill="#F2F2F2" />
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M10.6444 44.3654C11.5035 45.2115 12.8965 45.2115 13.7556 44.3654L25.4888 32.8099L33.8383 40.1194C34.7295 40.8996 36.0896 40.8385 36.9049 39.9818L49.6 26.6457V28.75C49.6 29.9467 50.5849 30.9167 51.8 30.9167C53.0151 30.9167 54 29.9467 54 28.75V21.1667C54 19.97 53.0151 19 51.8 19H44.1C42.8849 19 41.9 19.97 41.9 21.1667C41.9 22.3633 42.8849 23.3333 44.1 23.3333H46.722L35.1603 35.4788L26.8616 28.214C25.991 27.4518 24.668 27.4901 23.8444 28.3013L10.6444 41.3013C9.78521 42.1474 9.78521 43.5193 10.6444 44.3654Z"
                   fill="#CCCBC3"
                 />
@@ -188,13 +117,15 @@ const ResultsPage = () => {
         </Assumptions>
       </Panel>
 
-      <Panel title="Share results" colour="yellow">
-        <p>Found this useful? Why not share with a colleague:</p>
-        <ClickToCopy text={window.location.href} />
-        <p>
-          Or <a href="/">share by email</a>.
-        </p>
-      </Panel>
+      {publicId && (
+        <Panel title="Share results" colour="yellow">
+          <p>Found this useful? Why not share with a colleague:</p>
+          <ClickToCopy text={window.location.href} />
+          <p>
+            Or <a href="/">share by email</a>.
+          </p>
+        </Panel>
+      )}
 
       <Panel title="Download" colour="yellow">
         <p>You can also download your results as a spreadsheet (CSV).</p>
@@ -205,21 +136,21 @@ const ResultsPage = () => {
               <path
                 d="M2.25736 8L6.5 12.2426L10.7426 8"
                 stroke="#333333"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
               <path
                 d="M6.5 1V12"
                 stroke="#333333"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
               <path
                 d="M1.5 14L11.5 14"
                 stroke="#333333"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />

@@ -13,46 +13,39 @@ import Stats, { Stat } from "../components/Stats"
 
 const data = [
   {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
+    name: "Jun 21",
+    spend: 0,
+    // range: 0,
   },
   {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
+    name: "Jun 21",
+    spend: 1000,
+    // range: [1000, 1000],
   },
   {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
+    name: "Jul 21",
+    spend: 1300,
+    range: [1300, 1300],
   },
   {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
+    name: "Aug 21",
+    spend: 2780,
+    range: [2000, 3500],
   },
   {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
+    name: "Sep 21",
+    spend: 3090,
+    range: [2500, 4000],
   },
   {
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
+    name: "Oct 21",
+    spend: 3490,
+    range: [2400, 5050],
   },
   {
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
+    name: "Nov 21",
+    spend: 3790,
+    range: [2200, 5500],
   },
 ]
 
@@ -70,13 +63,18 @@ const ResultsPanel = () => {
 
           <Area
             type="monotone"
-            dataKey="amt"
+            dataKey="range"
             fill="#0059ff"
             stroke="#0059ff"
             strokeWidth={0}
           />
 
-          <Line type="monotone" dataKey="uv" stroke="#0059ff" strokeWidth={2} />
+          <Line
+            type="monotone"
+            dataKey="spend"
+            stroke="#0059ff"
+            strokeWidth={2}
+          />
         </ComposedChart>
       </ResponsiveContainer>
 

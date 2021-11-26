@@ -8,11 +8,13 @@ import ResultsPanel from "../components/ResultsPanel"
 
 import Layout from "../components/_Layout"
 import { useProgramme } from "../hooks/useProgramme"
+import useStoredProgramme from "../hooks/useStoredProgramme"
 
 const ResultsPage = () => {
-  const { storeProgramme, programme } = useProgramme()
+  const { storeProgramme, programme: newProgramme } = useProgramme()
   const push = useNavigate()
   const { publicId } = useParams()
+  const { data: storedProgramme } = useStoredProgramme(publicId as string)
 
   const save = async () => {
     if (!publicId && programme.projects.length > 0) {
@@ -20,6 +22,8 @@ const ResultsPage = () => {
       push(`/results/${result?.publicId}`, { replace: true })
     }
   }
+
+  const programme = storedProgramme || newProgramme
 
   useEffect(() => {
     save()

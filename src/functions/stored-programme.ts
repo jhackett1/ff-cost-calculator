@@ -51,6 +51,7 @@ export const handler: Handler = async (event, context) => {
           q.Create(q.Collection(FAUNADB_COLLECTION), {
             data: {
               publicId: nanoid(10),
+              createdAt: new Date().toString(),
               ...data,
             },
           })

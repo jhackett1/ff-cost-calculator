@@ -14,21 +14,19 @@ const ResultsPage = () => {
   const { storeProgramme, programme: newProgramme } = useProgramme()
   const push = useNavigate()
   const { publicId } = useParams()
+
+  // TODO: refactor so we only call this when id exists
   const { data: storedProgramme } = useStoredProgramme(publicId as string)
 
-  const save = async () => {
-    if (!publicId && programme.projects.length > 0) {
-      const result = await storeProgramme()
-      push(`/results/${result?.publicId}`, { replace: true })
-    }
-  }
-
-  const programme = storedProgramme || newProgramme
+  // const programme = storedProgramme || newProgramme
 
   useEffect(() => {
-    save()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    if (!publicId && newProgramme.projects.length > 0) {
+      storeProgramme().then(result =>
+        push(`/results/${result?.publicId}`, { replace: true })
+      )
+    }
+  }, [newProgramme.projects, publicId, push, storeProgramme])
 
   return (
     <Layout title="Your estimate">

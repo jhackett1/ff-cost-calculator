@@ -66,7 +66,9 @@ const ProjectNewPage = () => {
 
               <ErrorSummary />
 
-              <Button disabled={!isValid}>Next</Button>
+              <Button type="submit" disabled={!isValid}>
+                Next
+              </Button>
             </Form>
           )}
         </Formik>

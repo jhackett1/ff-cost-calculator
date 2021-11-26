@@ -13,7 +13,7 @@ import Stats, { Stat } from "../components/Stats"
 
 const data = [
   {
-    name: "Jun 21",
+    name: "May 21",
     spend: 0,
     // range: 0,
   },

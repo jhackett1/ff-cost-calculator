@@ -35,7 +35,7 @@ const ProjectNicknamePage = () => {
             })
             push("/programme")
           }}
-          initialValues={{ nickname: undefined, startDate: undefined }}
+          initialValues={{ nickname: "", startDate: "" }}
           validationSchema={projectNicknameSchema}
         >
           {({ isValid }) => (
@@ -59,7 +59,7 @@ const ProjectNicknamePage = () => {
 
               <ErrorSummary />
 
-              <Button>Next</Button>
+              <Button type="submit">Next</Button>
             </Form>
           )}
         </Formik>

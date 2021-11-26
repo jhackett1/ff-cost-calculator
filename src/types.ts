@@ -2,6 +2,7 @@ import React from "react"
 
 export interface StoredProgramme extends Programme {
   publicId: string
+  createdAt: string
 }
 
 /** a collection of projects */
@@ -12,7 +13,7 @@ export interface Programme {
 /** a single piece of work */
 export interface Project {
   nickname?: string
-  startDate?: Date
+  startDate?: string
   type?: ProjectType
   delivery?: DeliveryType
 }

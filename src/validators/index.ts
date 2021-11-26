@@ -15,7 +15,7 @@ export const projectDeliverySchema = Yup.object().shape({
 
 export const projectNicknameSchema = Yup.object().shape({
   nickname: Yup.string().required("You need to give a nickname"),
-  startDate: Yup.date().required("You need to give a start date"),
+  startDate: Yup.string().required("You need to give a start date"),
 })
 
 export const storedProgrammeSchema = Yup.object().shape({
@@ -28,7 +28,7 @@ export const storedProgrammeSchema = Yup.object().shape({
         .oneOf(Object.values(DeliveryType) as string[])
         .required("You need to choose a delivery method"),
       nickname: Yup.string().required("You need to give a nickname"),
-      startDate: Yup.date().required("You need to give a start date"),
+      startDate: Yup.string().required("You need to give a start date"),
     })
   ),
 })

@@ -11,3 +11,22 @@ export const prettyProjectType = {
   [ProjectType.Big]: "Project build",
   [ProjectType.Small]: "Experiment",
 }
+
+const monthNames = [
+  "Janu",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+]
+
+export const prettyDate = (date: Date): string => {
+  return `${monthNames[date.getMonth()]} ${date.getFullYear()}`
+}

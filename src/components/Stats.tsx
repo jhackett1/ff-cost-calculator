@@ -6,7 +6,7 @@ interface StatProps {
 }
 
 export const Stat = ({ value, caption }: StatProps): React.ReactElement => (
-  <div className={s.stat}>
+  <div>
     <dd className={s.value}>{value}</dd>
     <dt className={s.caption}>{caption}</dt>
   </div>

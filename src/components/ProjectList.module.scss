@@ -36,6 +36,11 @@
 .meta {
   margin: 0;
   color: $grey2;
+
+  svg {
+    margin-right: 7px;
+    transform: translateY(1px);
+  }
 }
 
 .remove {

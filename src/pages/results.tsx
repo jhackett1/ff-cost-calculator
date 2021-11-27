@@ -8,7 +8,7 @@ import ResultsPanel from "../components/ResultsPanel"
 
 import Layout from "../components/_Layout"
 import { useProgramme } from "../hooks/useProgramme"
-import useStoredProgramme from "../hooks/useStoredProgramme"
+// import useStoredProgramme from "../hooks/useStoredProgramme"
 
 const ResultsPage = () => {
   const { storeProgramme, programme: newProgramme } = useProgramme()
@@ -16,7 +16,7 @@ const ResultsPage = () => {
   const { publicId } = useParams()
 
   // TODO: refactor so we only call this when id exists
-  const { data: storedProgramme } = useStoredProgramme(publicId as string)
+  // const { data: storedProgramme } = useStoredProgramme(publicId as string)
 
   // const programme = storedProgramme || newProgramme
 
